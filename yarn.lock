@@ -4605,6 +4605,19 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@nocobase/cli@0.9.3-alpha.1":
+  version "0.9.3-alpha.1"
+  resolved "https://registry.npmmirror.com/@nocobase/cli/-/cli-0.9.3-alpha.1.tgz#48e1e65c194032214d38adc0acd5e7b37667fea4"
+  integrity sha512-ac2BrzlZSDyCuly3YwZZQnW69qReG+EQ3xqeQzpheLLpmNumKE8PRsplmBZ5peHloTVZvh+uApPY/Iui+4jbyA==
+  dependencies:
+    chalk "^4.1.1"
+    commander "^9.2.0"
+    dotenv "^10.0.0"
+    execa "^5.1.1"
+    pm2 "^5.2.0"
+    portfinder "^1.0.28"
+    serve "^13.0.2"
+
 "@node-saml/node-saml@^4.0.2":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@node-saml/node-saml/-/node-saml-4.0.3.tgz#ae30770fc8a1adea6d95d8d00a94a898c8d3c2e8"

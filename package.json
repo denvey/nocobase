@@ -44,6 +44,7 @@
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@commitlint/prompt-cli": "^16.1.0",
+    "@nocobase/cli": "0.9.3-alpha.1",
     "auto-changelog": "^2.4.0",
     "ghooks": "^2.0.4",
     "prettier": "^2.2.1",
