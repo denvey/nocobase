@@ -1,12 +1,11 @@
+import { CloseCircleOutlined } from '@ant-design/icons';
 import { ArrayField } from '@formily/core';
 import { RecursionField, observer, useFieldSchema } from '@formily/react';
 import { Button, Card, Divider } from 'antd';
-import { CloseCircleOutlined } from '@ant-design/icons';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AssociationFieldContext } from './context';
 import { useAssociationFieldContext } from './hooks';
-import { useTranslation } from 'react-i18next';
-// import { useRemoveActionProps } from '../../../block-provider/hooks';
 
 export const Nester = (props) => {
   const { options } = useContext(AssociationFieldContext);
@@ -23,33 +22,27 @@ const ToOneNester = (props) => {
   return <Card bordered={true}>{props.children}</Card>;
 };
 
-const toArr = (value) => {
-  if (!value) {
-    return [];
-  }
-  if (Array.isArray(value)) {
-    return value;
-  }
-  return [value];
-};
-
 const ToManyNester = observer((props) => {
   const fieldSchema = useFieldSchema();
-  const { field } = useAssociationFieldContext<ArrayField>();
-  const values = toArr(field.value);
+  const { options, field, allowMultiple, allowDissociate } = useAssociationFieldContext<ArrayField>();
   const { t } = useTranslation();
-  // const { onClick } = useRemoveActionProps(`${collectionField.collectionName}.${collectionField.target}`);
   return (
     <Card bordered={true} style={{ position: 'relative' }}>
-      {values.map((value, index) => {
+      {(field.value || []).map((value, index) => {
+        let allowed = allowDissociate;
+        if (!allowDissociate) {
+          allowed = !value?.[options.targetKey];
+        }
         return (
           <>
-            {!field.readPretty && (
+            {!field.readPretty && allowed && (
               <div style={{ textAlign: 'right' }}>
                 <CloseCircleOutlined
                   style={{ zIndex: 1000, position: 'absolute', color: '#a8a3a3' }}
                   onClick={() => {
-                    field.value.splice(index, 1);
+                    const result = field.value;
+                    result.splice(index, 1);
+                    field.value = result;
                   }}
                 />
               </div>
@@ -59,16 +52,17 @@ const ToManyNester = observer((props) => {
           </>
         );
       })}
-      {field.editable && (
+      {field.editable && allowMultiple && (
         <Button
           type={'dashed'}
           block
           onClick={() => {
-            field.value = field.value || [];
-            field.value.push({});
+            const result = field.value;
+            result.push({});
+            field.value = result;
           }}
         >
-            {t('Add new')}
+          {t('Add new')}
         </Button>
       )}
     </Card>
