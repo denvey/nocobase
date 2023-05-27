@@ -4605,18 +4605,121 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nocobase/cli@0.9.3-alpha.1":
-  version "0.9.3-alpha.1"
-  resolved "https://registry.npmmirror.com/@nocobase/cli/-/cli-0.9.3-alpha.1.tgz#48e1e65c194032214d38adc0acd5e7b37667fea4"
-  integrity sha512-ac2BrzlZSDyCuly3YwZZQnW69qReG+EQ3xqeQzpheLLpmNumKE8PRsplmBZ5peHloTVZvh+uApPY/Iui+4jbyA==
+"@nocobase/acl@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/acl/-/acl-0.9.2-alpha.4.tgz#e415db2f51dee93cac2906f18adc8d26b72f3735"
+  integrity sha512-jUkQ9jLs4rcULYsK5vKBJPEhhosfbH5wYYcmlFFB+Vjsy7kxx2IErJrZGwDh0HiigURk1NjHpu31LF+3Zu506g==
   dependencies:
+    "@nocobase/resourcer" "0.9.2-alpha.4"
+    "@nocobase/utils" "0.9.2-alpha.4"
+    json-templates "^4.2.0"
+    minimatch "^5.1.1"
+
+"@nocobase/actions@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/actions/-/actions-0.9.2-alpha.4.tgz#f2d7752e0ba9ce36777f464385107ac99a53cfca"
+  integrity sha512-GMQlKWo23aDKoemURYXxdr69Kop6rhtVINkfR2EoK8+sjoiP9PRZwGykY4IA6ues2yehfn3sKOA+/xJD8L2cvg==
+  dependencies:
+    "@nocobase/cache" "0.9.2-alpha.4"
+    "@nocobase/database" "0.9.2-alpha.4"
+    "@nocobase/resourcer" "0.9.2-alpha.4"
+
+"@nocobase/cache@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/cache/-/cache-0.9.2-alpha.4.tgz#06faae1d964c8c405afa0e1fcb5a9b4f2ef77f02"
+  integrity sha512-v3zeKR7MXUTutmibzijt255kN5yseekLfRdgFMPg0dxNdo4H7TL9W3cFsgOAXKe+GZ+ILSI/KpSOp9DH1AxrKg==
+  dependencies:
+    cache-manager "^4.1.0"
+
+"@nocobase/database@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/database/-/database-0.9.2-alpha.4.tgz#be951eda27f38e1165288f2d9749171aecb62e32"
+  integrity sha512-fw1NXErU9Zs5D9c91y86vWghV9c6ujgIN+yuLv8z7AAmBykyeKaOv0fepBGBaJMToe6iXNCTCRpMYYjF9zO8nQ==
+  dependencies:
+    "@nocobase/logger" "0.9.2-alpha.4"
+    "@nocobase/utils" "0.9.2-alpha.4"
+    async-mutex "^0.3.2"
+    cron-parser "4.4.0"
+    deepmerge "^4.2.2"
+    excel-date-to-js "^1.1.5"
+    flat "^5.0.2"
+    glob "^7.1.6"
+    mathjs "^10.6.1"
+    moment "2.x"
+    semver "^7.3.7"
+    sequelize "^6.26.0"
+    umzug "^3.1.1"
+
+"@nocobase/logger@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/logger/-/logger-0.9.2-alpha.4.tgz#0d90161e5acd8df6b1387ff0294956cdf2a43bf0"
+  integrity sha512-KygOL8SdlTgbSvMCKQqh6+c6P2qfABKxmN/Yxgvs2VD9MWyUNnPdfBginIhSWPlayhIF+AuPgg5eOfif75WuXQ==
+  dependencies:
+    lodash "^4.17.21"
+    winston "^3.8.2"
+    winston-daily-rotate-file "^4.7.1"
+
+"@nocobase/resourcer@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/resourcer/-/resourcer-0.9.2-alpha.4.tgz#465f17d1bb2e470524a4894c22f65fb3130b395f"
+  integrity sha512-63O5BVtR55iS/jddpzRMB6m+/DjMV/6BVxGRJI77O4fy0gFILzSJX0CaRDbpuDsv5hGCdoqxoykwctpiQkzQZA==
+  dependencies:
+    "@nocobase/utils" "0.9.2-alpha.4"
+    deepmerge "^4.2.2"
+    koa-compose "^4.1.0"
+    lodash "^4.17.21"
+    path-to-regexp "^6.1.0"
+    qs "^6.9.4"
+
+"@nocobase/server@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/server/-/server-0.9.2-alpha.4.tgz#da2aa87d76c89a1d022b2ae7afdedd8c72ce267e"
+  integrity sha512-SUlwlNDc0/DyxJu2tbVo3h/sAGYDgC57D5gi95bexn+B5LKI7nURQPKlzVW5ee2VlDP0nakpuzAv2IU3j6E05A==
+  dependencies:
+    "@hapi/topo" "^6.0.0"
+    "@koa/cors" "^3.1.0"
+    "@koa/router" "^9.4.0"
+    "@nocobase/acl" "0.9.2-alpha.4"
+    "@nocobase/actions" "0.9.2-alpha.4"
+    "@nocobase/database" "0.9.2-alpha.4"
+    "@nocobase/logger" "0.9.2-alpha.4"
+    "@nocobase/resourcer" "0.9.2-alpha.4"
+    "@nocobase/utils" "0.9.2-alpha.4"
     chalk "^4.1.1"
     commander "^9.2.0"
-    dotenv "^10.0.0"
-    execa "^5.1.1"
-    pm2 "^5.2.0"
-    portfinder "^1.0.28"
-    serve "^13.0.2"
+    find-package-json "^1.2.0"
+    i18next "^22.4.9"
+    koa "^2.13.4"
+    koa-bodyparser "^4.3.0"
+    koa-static "^5.0.0"
+    lodash "^4.17.21"
+    moment "^2.29.1"
+    semver "^7.3.7"
+    xpipe "^1.0.5"
+
+"@nocobase/test@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/test/-/test-0.9.2-alpha.4.tgz#b77c2e616694711c71fc531f1bdd791b40019821"
+  integrity sha512-VB5kikH+hhO7qr7z5O32W0RyCc8Rad8Jihobb997YMr3be9tMumYaBE0yK91NSvz9XzgI/GqFsuNTtt0DkN8Sg==
+  dependencies:
+    "@nocobase/server" "0.9.2-alpha.4"
+    "@types/supertest" "^2.0.11"
+    mockjs "^1.1.0"
+    mysql2 "^2.3.3"
+    pg "^8.7.3"
+    pg-hstore "^2.3.4"
+    sqlite3 "^5.0.8"
+    supertest "^6.1.6"
+
+"@nocobase/utils@0.9.2-alpha.4":
+  version "0.9.2-alpha.4"
+  resolved "https://registry.npmmirror.com/@nocobase/utils/-/utils-0.9.2-alpha.4.tgz#52da0359d3cd7425b239c6c4d363e90831d7ea28"
+  integrity sha512-9Oy0k8lQfGYTADDkfhc7Q0ELgz4AKlQ9bq6/Xr8Bu/ZGVvddGjbpdM2p3mroKIOEzxAjscXHzfBqaPQkX46nnw==
+  dependencies:
+    "@hapi/topo" "^6.0.0"
+    deepmerge "^4.2.2"
+    flat-to-nested "^1.1.1"
+    graphlib "^2.1.8"
 
 "@node-saml/node-saml@^4.0.2":
   version "4.0.3"
@@ -15467,6 +15570,14 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA==
+
+json-templates@^4.2.0:
+  version "4.3.0"
+  resolved "https://registry.npmmirror.com/json-templates/-/json-templates-4.3.0.tgz#96cc7dbd03122c47463b3e07ca5ccac7ee04c6be"
+  integrity sha512-vVrB7Nx2TBijypW/G/mmijWjxN7hz7Rh68m2rao0MMLd5EgY9vH5R8DOJjH1V/VP/l+/QnKYt/pzQbOYuK3Dpg==
+  dependencies:
+    dedupe "^3.0.2"
+    object-path "^0.11.8"
 
 json2module@^0.0.3:
   version "0.0.3"
